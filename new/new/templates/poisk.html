@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Поиск{% endblock %}
+
+{% block button %}
+<a href="/logout">Выйти</a>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+      {% csrf_token %}
+      <p><b>Поиск собеседника</b></p>
+      <input type="text" name="poisk" placeholder="Ник собеседника" required><Br>
+      <p><button type="submit" name="button">Найти</button></p>
+  </form>
+  <span>{{ error }}</span>
+{% endblock %}

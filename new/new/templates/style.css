@@ -1,0 +1,10 @@
+.message{
+  margin: 40px;
+  border: 5px solid red;
+  overflow: scroll;
+  height: 80%;
+}
+.block_message {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;

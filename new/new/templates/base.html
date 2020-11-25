@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Чат{% endblock %}</title>
+  </head>
+  <body>
+    <div class="block_button" align = "right">
+
+    {% block button %}{% endblock %}
+
+    </div>
+
+    <div class="block_content" align = "center">
+
+    {% block content %}{% endblock %}
+
+    </div>
+    <div class="block_message">
+
+    {% block message %}{% endblock %}
+
+    </div>
+  </body>
+</html>
