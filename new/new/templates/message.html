@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Чат{% endblock %}
+
+{% block button %}
+<a href="/logout">Выйти</a>
+{% endblock %}
+
+
+{% block content %}
+<style media="screen">
+  #message_l{
+    margin: 0 10vh 10vh 10vh;
+    height: 80vh;
+    overflow: scroll;
+  }
+</style>
+
+<div class="{{last_message}}" id="message_l">
+
+  {% if message_list %}
+    {% for i in message_list %}
+        <strong>{{i.user_from}}</strong>
+        <strong>{{i.date}}</strong>
+        <p>{{i.text}}</p>
+
+      {% endfor %}
+  {% endif %}
+
+</div>
+{% endblock %}
+
+
+
+{% block message %}
+{% csrf_token %}
+<div class="block_message">
+
+    <style media="screen">
+      .block_message {
+        position: fixed;
+        bottom: 1vh;
+        left: 50vh;
+    </style>
+
+  <textarea name="message" cols="100" rows="5" placeholder="Ваше вообщение" required id="message_t"></textarea><Br>
+  <p><button type="button" name="button" class="btn" id="btn">Отправить</button></p>
+    <!-- <form method="post">
+      {% csrf_token %}
+       <textarea name="message" cols="100" rows="5" placeholder="Ваше вообщение" required class="message_t"></textarea><Br>
+      <p><button type="button" name="button" class="btn">Отправить</button></p>
+    </form> -->
+
+</div>
+
+{% load static %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'script.js' %}"></script>
+{% endblock %}
